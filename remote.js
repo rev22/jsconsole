@@ -70,7 +70,8 @@ function getRemoteScript() {
   var scripts = document.getElementsByTagName('script'),
       remoteScript = null;
   for (var i = 0; i < scripts.length; i++) {
-    if (/jsconsole.com(:\d+)?\/remote.js/.test(scripts[i].src)) {
+    // TODO this is pretty fragile
+    if (/remote.js/.test(scripts[i].src)) {
       remoteScript = scripts[i];
       break;
     }
