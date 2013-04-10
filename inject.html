@@ -6,13 +6,16 @@
 <meta id="meta" name="viewport" content="width=device-width; height=device-height; user-scalable=no; initial-scale=1.0" />
 <style>* { font-family: sans-serif; }</style>
 <script>
+var baseURL = window.location.origin;
+var injectCode = "javascript:(function(s){s.id='jscinject';s.src='"+ baseURL + "/inject.js';document.body.appendChild(s)})(document.createElement('script'))";
 if (!window.location.search) {
-  window.location = "?javascript:(function(s){s.src='http://jsconsole.com/inject.js';document.body.appendChild(s)})(document.createElement('script'))";
+  window.location = "?javascript:" + injectCode;
 }
+document.getElementById('bookmarklet').href=injectCode;
 </script>
 </head>
 <body>
-<p>This page should redirect right away to the correct url, once it does, bookmarket it on your mobile phone, then remove the <em>http://jsconsole.com/inject.html?</em> (including the question mark) part to get the bookmarklet to work.</p>
-<p>Alternatively, to inject JS Console, bookmarket this: <a href="javascript:(function(s){s.src='http://jsconsole.com/inject.js';document.body.appendChild(s)})(document.createElement('script'))">JS Console</a> and sync to your phone.</p>
+<p>This page should redirect right away to the correct url, once it does, bookmarket it on your mobile phone, then remove the <em><script>document.write(baseURL)</script>/inject.html?</em> (including the question mark) part to get the bookmarklet to work.</p>
+<p>Alternatively, to inject JS Console, bookmarket this: <a id="bookmarklet" href="#">JS Console</a> and sync to your phone.</p>
 </body>
 </html>

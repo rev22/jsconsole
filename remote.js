@@ -67,16 +67,7 @@ function stringify(o, simple) {
 // }
 
 function getRemoteScript() {
-  var scripts = document.getElementsByTagName('script'),
-      remoteScript = scripts[scripts.length-1];
-  for (var i = 0; i < scripts.length; i++) {
-    if (/jsconsole\..*(:\d+)?\/remote.js/.test(scripts[i].src)) {
-      remoteScript = scripts[i];
-      break;
-    }
-  }
-  
-  return remoteScript;
+  return document.getElementById('jscremote') || document.getElementById('jsconsole');
 }
 
 var last = getRemoteScript();

@@ -1,5 +1,7 @@
 (function (window) {
 
+var baseURL = window.location.origin;
+
 function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
 }
@@ -657,7 +659,7 @@ var exec = document.getElementById('exec'),
           sse = new EventSource('/remote/' + id + '/log');
           sse.onopen = function () {
             remoteId = id;
-            window.top.info('Connected to "' + id + '"\n\n<script src="http://jsconsole.com/remote.js?' + id + '"></script>');
+            window.top.info('Connected to "' + id + '"\n\n<script id="jscremote" src="' + baseURL + '/remote.js?' + id + '"></script>');
           };
 
           sse.onmessage = function (event) {
