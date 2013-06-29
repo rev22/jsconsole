@@ -6,13 +6,14 @@
   window.JSCONSOLE = {
     contentWindow: window,
     contentDocument: document,
-    console: iframe
   };
 
   if (iframe = document.getElementById('jsconsole')) {
+    window.JSCONSOLE.console = iframe;
     document.getElementById('jsconsole').style.display = 'block';
   } else {
     iframe = document.createElement('iframe');
+    window.JSCONSOLE.console = iframe;
 
     document.body.appendChild(iframe);
 
