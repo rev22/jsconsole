@@ -210,7 +210,7 @@ function echo(cmd) {
   appendLog(li, true);
 }
 
-window.info = function(cmd) {
+function info(cmd) {
   var li = document.createElement('li');
 
   li.className = 'info';
@@ -220,6 +220,8 @@ window.info = function(cmd) {
   // appendLog(li, true);
   appendLog(li);
 }
+
+window.info = info;
 
 function appendLog(el, echo) {
   if (echo) {
@@ -317,9 +319,8 @@ function loadScript() {
       var script = document.createElement('script');
       script.src = url
       script.onload = function () {
-	var msg = window.top.info || function () {};  
-        msg('Loaded ' + url, 'http://' + window.location.hostname);
-        if (url == libraries.coffeescript) msg('Now you can type CoffeeScript instead of plain old JS!');
+        info('Loaded ' + url, 'http://' + window.location.hostname);
+        if (url == libraries.coffeescript) info('Now you can type CoffeeScript instead of plain old JS!');
       };
       script.onerror = function () {
         log('Failed to load ' + url, 'error');
@@ -338,13 +339,11 @@ function loadDOM(url) {
   script.src = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22' + encodeURIComponent(url) + '%22&format=xml&callback=' + cb;
   
   window[cb] = function (yql) {
-    var msg = window.top.info;
-    if (!msg) msg = function () {};  
     if (yql.results.length) {
       var html = yql.results[0].replace(/type="text\/javascript"/ig,'type="x"').replace(/<body.*?>/, '').replace(/<\/body>/, '');
 
       doc.body.innerHTML = html;
-      msg('DOM load complete');
+      info('DOM load complete');
     } else {
       log('Failed to load DOM', 'error');
     }
@@ -661,9 +660,8 @@ var exec = document.getElementById('exec'),
 
           sse = new EventSource('/remote/' + id + '/log');
           sse.onopen = function () {
-	    var msg = window.top.info || function () {};  
             remoteId = id;
-            msg('Connected to "' + id + '"\n\n<script id="jscremote" src="' + baseURL + '/remote.js?' + id + '"></script>');
+            info('Connected to "' + id + '"\n\n<script id="jscremote" src="' + baseURL + '/remote.js?' + id + '"></script>');
           };
 
           sse.onmessage = function (event) {
@@ -671,8 +669,7 @@ var exec = document.getElementById('exec'),
             if (data.type && data.type == 'error') {
               post(data.cmd, true, ['error', data.response]);
             } else if (data.type && data.type == 'info') {
-	      var msg = window.top.info || function () {};  
-              msg(data.response);
+              info(data.response);
             } else {
               if (data.cmd != 'remote console.log') data.response = data.response.substr(1, data.response.length - 2); // fiddle to remove the [] around the repsonse
               echo(data.cmd);
@@ -681,8 +678,7 @@ var exec = document.getElementById('exec'),
           };
 
           sse.onclose = function () {
-	    var msg = window.top.info || function () {};  
-            msg('Remote connection closed');
+            info('Remote connection closed');
             remoteId = null;
           };
 
