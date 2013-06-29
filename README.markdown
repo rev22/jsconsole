@@ -3,7 +3,7 @@
 A JavaScript (and [CoffeeScript](http://coffeescript.com)) web console, useful 
 for quick experimentation, debugging, presentations (for live coding) and workshops.
 
-Also available as a [native iOS app](http://jsconsole.com/app/) from the iTunes store
+This is a fork of [jsconsole.com](http://jsconsole.com), optimized for indipendent hosting/experimentation.
 
 # Features
 
@@ -16,6 +16,8 @@ Also available as a [native iOS app](http://jsconsole.com/app/) from the iTunes 
 - Permalink to individual executions
 
 # Hosting jsconsole yourself
+
+The server-side code is used mainly only for the remote debugging feature.
 
 This requires that you install [node.js](http://nodejs.org). Once installed, 
 download this project (or clone it using git) 
