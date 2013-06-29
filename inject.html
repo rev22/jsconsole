@@ -6,7 +6,7 @@
 <meta id="meta" name="viewport" content="width=device-width; height=device-height; user-scalable=no; initial-scale=1.0" />
 <style>* { font-family: sans-serif; }</style>
 <script>
-var baseURL = window.location.origin;
+var baseURL = window.location.href.split(/[#?]/).[0].replace(/\/[^\/]*$/, '');
 var injectCode = "javascript:(function(s){s.id='jscinject';s.src='"+ baseURL + "/inject.js';document.body.appendChild(s)})(document.createElement('script'))";
 if (!window.location.search) {
   window.location = "?javascript:" + injectCode;

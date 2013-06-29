@@ -1,6 +1,6 @@
 (function (window) {
 
-var baseURL = window.location.origin;
+var baseURL = window.location.href.split(/[#?]/).[0].replace(/\/[^\/]*$/, '');
 
 function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
@@ -281,7 +281,7 @@ function showhelp() {
     ':history - list current session history',
     ':about',
     '',
-    'Directions to <a href="/inject.html">inject</a> JS Console in to any page (useful for mobile debugging)'
+    'Directions to <a href="' + baseURL + '/inject.html">inject</a> JS Console in to any page (useful for mobile debugging)'
   ];
     
   if (injected) {
