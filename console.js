@@ -1026,6 +1026,6 @@ if (document.addEventListener) document.addEventListener('deviceready', function
 //   alert('hidden');
 // }
 
-if (injected) { window.JSCONSOLE.consolelog = window._console.log; }
+if (injected) { window.top['JSCONSOLE'].consolelog = window._console.log; }
     
 })(this);
