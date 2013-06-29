@@ -1,6 +1,6 @@
 (function (window) {
 
-var baseURL = window.location.href.split(/[#?]/).[0].replace(/\/[^\/]*$/, '');
+var baseURL = window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
 
 function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
