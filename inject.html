@@ -9,7 +9,7 @@
 var baseURL = window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
 var injectCode = "javascript:(function(s){s.id='jscinject';s.src='"+ baseURL + "/inject.js';document.body.appendChild(s)})(document.createElement('script'))";
 if (!window.location.search) {
-  window.location = "?javascript:" + injectCode;
+  window.location = "?" + injectCode;
 }
 document.getElementById('bookmarklet').href=injectCode;
 </script>
