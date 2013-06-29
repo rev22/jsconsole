@@ -11,11 +11,13 @@ var injectCode = "javascript:(function(s){s.id='jscinject';s.src='"+ baseURL + "
 if (!window.location.search) {
   window.location = "?" + injectCode;
 }
-document.getElementById('bookmarklet').href=injectCode;
 </script>
 </head>
 <body>
 <p>This page should redirect right away to the correct url, once it does, bookmarket it on your mobile phone, then remove the <em><script>document.write(baseURL)</script>/inject.html?</em> (including the question mark) part to get the bookmarklet to work.</p>
-<p>Alternatively, to inject JS Console, bookmarket this: <a id="bookmarklet" href="javascript:0">JS Console</a> and sync to your phone.</p>
+<p>Alternatively, to inject JS Console, bookmarket this: <a id="bookmarklet">JS Console</a> and sync to your phone.</p>
+<script>
+document.getElementById('bookmarklet').href=injectCode;
+</script>
 </body>
 </html>
