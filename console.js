@@ -712,14 +712,16 @@ if (enableCC && iOSMobile) {
   exec.parentNode.appendChild(fakeInput);
 }
 
-if (!injected) {
+var overwriteConsoleWithSandbox = true; /* Used to be: !injected */
+    
+if (overwriteConsoleWithSandbox) {
   body.appendChild(sandboxframe);
   sandboxframe.setAttribute('id', 'sandbox');  
 }
 
 sandbox = sandboxframe.contentDocument || sandboxframe.contentWindow.document;
 
-if (!injected) {
+if (overwriteConsoleWithSandbox) {
   sandbox.open();
   // stupid jumping through hoops if Firebug is open, since overwriting console throws error
   sandbox.write('<script>(function () { var fakeConsole = ' + fakeConsole + '; if (console != undefined) { for (var k in fakeConsole) { console[k] = fakeConsole[k]; } } else { console = fakeConsole; } })();</script>');
