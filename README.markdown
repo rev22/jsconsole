@@ -41,9 +41,11 @@ visit that IP address and port you're running jsconsole on:
 
 ![jsconsole running locally](http://i.imgur.com/hyRF5.png)
 
-## License, authors and contributors
+## Licensing, authors and contributors
 
-You can read the MIT-LICENSE file for licensing information.
+Note: The files `prettify.js` and `prettify.packed.js` are separately licensed and copyrighted; please read the `prettify.js` commentary.
+
+You can read the LICENSE file for licensing information.
 
 This fork is maintained by [Michele Bini (rev22)](http://rev22.github.io)
 
