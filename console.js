@@ -1,6 +1,6 @@
 (function (window) {
 
-var baseURL = window.JSCONSOLE ? window.JSCONSOLE.baseURL : window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
+var baseURL = window.top.JSCONSOLE ? window.top.JSCONSOLE.baseURL : window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
 
 function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
