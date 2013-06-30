@@ -1,0 +1,3 @@
+Autocompletion of Date (and this.Date) does not work.
+
+Autocompletion in injected console seems to work only with 'this'.
