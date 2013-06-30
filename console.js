@@ -1028,7 +1028,7 @@ if (document.addEventListener) document.addEventListener('deviceready', function
 
 if (injected) {
     sandboxframe._console = window._console;
-    sandboxframe.console.log = window._console.log
+    window.top.console.log = window._console.log;
 }
     
 })(this);
