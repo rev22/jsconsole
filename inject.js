@@ -6,6 +6,7 @@
   window.JSCONSOLE = {
     contentWindow: window,
     contentDocument: document,
+    baseURL: baseURL
   };
 
   if (iframe = document.getElementById('jsconsole')) {

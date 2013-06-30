@@ -1,6 +1,6 @@
 (function (window) {
 
-var baseURL = window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
+var baseURL = window.JSCONSOLE ? window.JSCONSOLE.baseURL : window.location.href.split(/[#?]/)[0].replace(/\/[^\/]*$/, '');
 
 function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
@@ -188,7 +188,7 @@ function echo(cmd) {
   var li = document.createElement('li');
 
   li.className = 'echo';
-  li.innerHTML = '<span class="gutter"></span><div>' + cleanse(cmd) + '<a href="/?' + encodeURIComponent(cmd) + '" class="permalink" title="permalink">link</a></div>';
+  li.innerHTML = '<span class="gutter"></span><div>' + cleanse(cmd) + '<a href="' + baseURL + '/index.html?' + encodeURIComponent(cmd) + '" class="permalink" title="permalink">link</a></div>';
 
   logAfter = null;
 
