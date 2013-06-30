@@ -25,14 +25,10 @@ body { overflow: auto; }
 
 #output li div { position: relative; }
 #output .echo .permalink { position: absolute; right: 0; overflow: hidden; display: block; top: 0; opacity: 0.5; }
+#output .echo .permalink:before { content: "#" }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
   -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
-  
-  #output .echo .permalink {
-    background: url(link@2x.png) no-repeat center; 
-    background-size: 16px 16px; 
-  }
 }
 
 
