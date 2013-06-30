@@ -1,3 +1,7 @@
 Autocompletion of Date (and this.Date) does not work.
 
 Autocompletion in injected console seems to work only with 'this'.
+
+Bugs with Iceweasel 10.0.7:
+* Autocompletion not functioning at.
+* Return key for executing line not functioning in injected console.
