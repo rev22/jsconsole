@@ -724,8 +724,6 @@ if (!injected) {
   // stupid jumping through hoops if Firebug is open, since overwriting console throws error
   sandbox.write('<script>(function () { var fakeConsole = ' + fakeConsole + '; if (console != undefined) { for (var k in fakeConsole) { console[k] = fakeConsole[k]; } } else { console = fakeConsole; } })();</script>');
   sandbox.close();
-} else {
-  sandboxframe.contentWindow.eval('(function () { var fakeConsole = ' + fakeConsole + '; if (console != undefined) { for (var k in fakeConsole) { console[k] = fakeConsole[k]; } } else { console = fakeConsole; } })();');
 }
 
 // tweaks to interface to allow focus
@@ -1026,9 +1024,13 @@ if (document.addEventListener) document.addEventListener('deviceready', function
 //   alert('hidden');
 // }
 
-if (injected) {
-    sandboxframe._console = window._console;
-    window.top.console.log = window._console.log;
-}
+if (injected) (function () {
+  var x = window._console, y = window.top.console, k;
+  if (y) {
+    for (k in x) { y[k] = x[k]; }
+  } else {
+    window.top.console = x;
+  }
+})();
     
 })(this);
