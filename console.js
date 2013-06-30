@@ -806,6 +806,8 @@ function findNode(list, node) {
   return -1;
 }
 
+var modifierkeys = { 0: 1, 16: 1 };
+    
 exec.onkeydown = function (event) {
   event = event || window.event;
   var keys = {38:1, 40:1}, 
@@ -876,7 +878,7 @@ exec.onkeydown = function (event) {
     if (ccPosition !== false && which == 9) {
       codeComplete(event); // cycles available completions
       return false;
-    } else if (ccPosition !== false && cursor.nextSibling) {
+    } else if (ccPosition !== false && cursor.nextSibling && !modifierkeys[which]) {
       removeSuggestion();
     }
   }
