@@ -4,6 +4,7 @@ CACHE:
 inject.html
 remote-debugging.html
 console.js
+prettify.packed.js
 EventSource.js
 inject.js
 console.css
